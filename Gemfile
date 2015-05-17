@@ -9,14 +9,14 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'foundation-rails'
+gem 'zurb-foundation'
+gem 'foundation_rails_helper'
 gem 'intercom-rails'
 gem "mini_magick"
 gem 'rollbar', '~> 1.4.4'
 
 # Admin
 gem 'devise'
-gem 'devise-foundation-views'
 gem 'devise_invitable'
 gem 'devise_uid'
 gem 'omniauth'
