@@ -1,4 +1,32 @@
-<div style="background: black">
-  <%= image_tag 'c-logo.png' %>
-</div>
+<style type="text/css">
+  html{ overflow: hidden; }
+  body{ background: rgb(76, 135, 155); }
+  .holder{
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    margin-top: -96px;
+  }
+  .holder img{
+    height: 192px;
+  }
+</style>
+<video autoplay="" poster="<%= asset_path('waves.jpg') %>" id="bgvid" loop="" style="
+    width: 100%;
+">
+  <source src="https://s3.amazonaws.com/at-context/assets/waves_hq.mp4" type="video/mp4">
+</video>
+<div class="row holder">
+  <div class="large-8 large-centered column">
+    <div class="row">
 
+      <div class="large-4 column">
+        <%= image_tag 'c-logo.png' %>
+      </div>
+    </div>
+  </div>
+
+</div>
