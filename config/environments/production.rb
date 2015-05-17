@@ -1,6 +1,23 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # General Settings
+  config.app_domain = 'cccontext.herokuapp.com'
+
+  # Email
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: config.app_domain }
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: '587',
+    enable_starttls_auto: true,
+    user_name: ENV["LB_GMAIL_UR"],
+    password: ENV["LB_GMAIL_PW"],
+    authentication: :plain,
+    domain: 'gmail.com'
+  }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -20,9 +37,8 @@ Rails.application.configure do
   # NGINX, varnish or squid.
   # config.action_dispatch.rack_cache = true
 
-  # Disable serving static files from the `/public` folder by default since
-  # Apache or NGINX already handles this.
-  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  # Disable Rails's static asset server (Apache or NGINX will already do this).
+  config.serve_static_assets = false
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
