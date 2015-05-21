@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :topics
+    resources :stories, only: [:show, :edit, :update, :destroy]
+  end
+  resources :stories, only: [:index, :new, :create]
+
   root 'topics#featured'
 
   get 't/:id' => 'topics#index'
