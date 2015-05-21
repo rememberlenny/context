@@ -1,7 +1,6 @@
 class StoriesController < ApplicationController
-  before_action :access_check_story, only: [:edit, :update, :destroy]
-  before_action :change_story, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_story, only: [:show, :edit, :update, :destroy]
+  before_action :access_check_story, only: [:edit, :update, :destroy]
 
   # GET /stories
   # GET /stories.json
@@ -12,7 +11,6 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
-    @topic = Topic.find(@story.topic_id)
   end
 
   # GET /stories/new
