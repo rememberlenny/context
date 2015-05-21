@@ -1,0 +1,11 @@
+<div class="large-12 column">
+  <% @stories.each do |story| %>
+    <div class="row">
+      <h3><%= story.name %></h3>
+      <p><%= story.description %></p>
+      <%= link_to 'Show', story %>
+      <%= link_to 'Edit', edit_story_path(story) %>
+      <%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  <% end %>
+</div>
