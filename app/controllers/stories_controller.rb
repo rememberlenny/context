@@ -12,6 +12,7 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
+    @topic = Topic.find(@story.topic_id)
   end
 
   # GET /stories/new
@@ -31,11 +32,12 @@ class StoriesController < ApplicationController
   # POST /stories.json
   def create
     story_params[:user_id] = current_user.id
+    @topic = Topic.find(story_params[:topic_id])
     @story = Story.new(story_params)
 
     respond_to do |format|
       if @story.save
-        format.html { redirect_to @story, notice: 'Story was successfully created.' }
+        format.html { redirect_to [@topic, @story], notice: 'Story was successfully created.' }
         format.json { render :show, status: :created, location: @story }
       else
         format.html { render :new }
