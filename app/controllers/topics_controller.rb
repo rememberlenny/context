@@ -2,6 +2,7 @@ class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   def featured
+    @topics = Topic.all
   end
 
   def index

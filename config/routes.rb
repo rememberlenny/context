@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   root 'topics#featured'
 
+  get 's'     => 'topics#featured'
+  get 't'     => 'topics#featured'
   resources :topics, :path => '/t' do
     resources :stories, only: [:show, :edit, :update, :destroy], :path => '/s'
   end
-  resources :stories, only: [:index, :new, :create], :path => '/s'
+  resources :stories, only: [:new, :create], :path => '/s'
 
   get 'u/:id' => 'users#show'
 
