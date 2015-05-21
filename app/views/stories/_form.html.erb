@@ -19,9 +19,9 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
-  <div class="field">
+  <div class="field" >
     <%= f.label :topic_id %><br>
-    <%= f.number_field :topic_id %>
+    <%= f.number_field :topic_id, :value => @topic %>
   </div>
   <div class="actions">
     <%= f.submit %>

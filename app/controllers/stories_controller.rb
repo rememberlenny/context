@@ -16,6 +16,10 @@ class StoriesController < ApplicationController
 
   # GET /stories/new
   def new
+    @topic = ''
+    if !params[:topic_id].nil?
+      @topic = params[:topic_id]
+    end
     @story = Story.new
   end
 
