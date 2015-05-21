@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   end
 
   def index
-    @topics = Story.where(:topic => params[:id])
+    @stories = Story.where(:topic => params[:id])
   end
 
 end
