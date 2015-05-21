@@ -71,10 +71,6 @@ class TopicsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_topic
-      if Topic.where(id: params[:id]).count === 0
-        redirect_to root_path
-        return
-      end
       @topic = Topic.find(params[:id])
     end
 
