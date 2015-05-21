@@ -14,6 +14,7 @@ gem 'foundation_rails_helper'
 gem 'intercom-rails'
 gem "mini_magick"
 gem 'rollbar', '~> 1.4.4'
+gem "pundit"
 
 # Admin
 gem 'devise'
