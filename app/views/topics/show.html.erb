@@ -1,19 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="large-9 column">
+  <h1><%= @topic.name %></h1>
+  <p id="notice"><%= notice %></p>
+</div>
+<div class="large-3 column">
+  <%= link_to 'Edit', edit_topic_path(@topic) %> |
+  <%= link_to 'Back', topics_path %>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @topic.name %>
-</p>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @topic.slug %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @topic.description %>
-</p>
-
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
