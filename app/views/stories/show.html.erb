@@ -1,19 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="large-9 column">
+  <div class="row">
+    <h1><b><%= @topic.name %></b></h1>
+  </div>
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <p>
+      <strong>Name:</strong>
+      <%= @story.name %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @story.name %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @story.description %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @story.description %>
-</p>
-
-<p>
-  <strong>Topic:</strong>
-  <%= @story.topic_id %>
-</p>
-
-<%= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
+  </div>
+</div>
+<div class="large-12 column">
+  <div class="row">
+    <%= link_to 'Edit', edit_story_path(@story) %> |
+    <%= link_to 'Back', stories_path %>
+  </div>
+</div>

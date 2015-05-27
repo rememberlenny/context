@@ -14,8 +14,14 @@
   </head>
 
   <body>
+    <%= render 'partials/topnav' %>
     <div class="row">
-      <%= yield %>
+      <div class="large-2 column">
+        <%= render 'partials/master' %>
+      </div>
+      <div class="large-10 column">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

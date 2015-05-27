@@ -11,6 +11,7 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
+    @topic = Topic.find @story.topic_id
   end
 
   # GET /stories/new
@@ -35,7 +36,7 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.save
-        format.html { redirect_to [@topic, @story], notice: 'Story was successfully created.' }
+        format.html { redirect_to @story, notice: 'Story was successfully created.' }
         format.json { render :show, status: :created, location: @story }
       else
         format.html { render :new }
@@ -71,7 +72,7 @@ class StoriesController < ApplicationController
   private
     def access_check_story
       if @story.user_id != current_user.id
-        flash[:notice] = 'Access denied'
+        flash[:notice] = 'Access denied. Current user ' + current_user.id.to_s + '. Story is ' + @story.user_id.to_s
         redirect_to story_path
       end
     end

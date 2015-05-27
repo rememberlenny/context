@@ -1,11 +1,14 @@
 <div class="large-12 column">
   <% @stories.each do |story| %>
-    <div class="row">
-      <h3><%= story.name %></h3>
+    <div class="row hover-parent">
+      <h3><%= link_to story.name, story %></h3>
       <p><%= story.description %></p>
-      <%= link_to 'Show', story %>
-      <%= link_to 'Edit', edit_story_path(story) %>
-      <%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <div class="column hidden-child">
+        <div class="row">
+          <%= link_to 'Show', story %> |
+          <%= link_to 'Edit', edit_story_path(story) %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

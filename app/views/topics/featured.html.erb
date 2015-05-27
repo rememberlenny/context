@@ -2,7 +2,7 @@
   <h1>Topics#featured</h1>
   <p>Find me in app/views/topics/featured.html.erb</p>
   <% @topics.each do |topic| %>
-    <h2><%= link_to topic.name, topic %></h2>
+    <h2><%= link_to topic.name, topic_path(topic) %></h2>
   <% end %>
 </div>
 <div class="large-4 column">

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'topics#featured'
 
   get 's'     => 'topics#featured'
-  get 't'     => 'topics#featured'
+  get 't'     => 'topics#featured', as: 'featured_topic'
   resources :topics, :path => '/t'
   resources :stories, :path => '/s'
 
