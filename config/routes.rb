@@ -9,10 +9,10 @@ Rails.application.routes.draw do
 
 
   # root 'landing#no_info'
-  match '/u/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   devise_for :users, :path => '/u', :controllers => {
     omniauth_callbacks: 'omniauth_callbacks'
   }
-  get 'u/:id' => 'users#show'
+  # match '/u/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+  # get 'u/:id' => 'users#show'
 
 end

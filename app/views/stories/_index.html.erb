@@ -1,14 +1,19 @@
 <div class="large-12 column">
   <% @stories.each do |story| %>
+    <% special_class = '' %>
+    <% if current_user && story.user_id == current_user.id %>
+      <% special_class = 'createdby' %>
+    <% end %>
     <div class="row hover-parent">
-      <h3><%= link_to story.name, story %></h3>
-      <p><%= story.description %></p>
-      <div class="column hidden-child">
-        <div class="row">
-          <%= link_to 'Show', story %> |
+      <h3 class="<%= special_class %> inline-block"><%= link_to story.name, story %></h3>
+      <% if !story.description.empty? %>
+        <p><%= story.description %></p>
+      <% end %>
+      <% if current_user && story.user_id == current_user.id %>
+        <div class="right hidden-child">
           <%= link_to 'Edit', edit_story_path(story) %>
         </div>
-      </div>
+      <% end %>
     </div>
   <% end %>
 </div>

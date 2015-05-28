@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in, only: [:new, :edit, :update, :destroy]
 
   def featured
     @topics = Topic.all
@@ -18,6 +19,7 @@ class TopicsController < ApplicationController
   # GET /topics/1.json
   def show
     @stories = Story.where(:topic_id => params[:id])
+    @user = User.find @topic.user_id
   end
 
   # GET /topics/new
@@ -75,8 +77,14 @@ class TopicsController < ApplicationController
       @topic = Topic.find(params[:id])
     end
 
+    def logged_in
+      if !user_signed_in?
+        redirect_to new_user_session_path
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:name, :slug, :description)
+      params.require(:topic).permit(:name, :slug, :description, :user_id)
     end
 end
