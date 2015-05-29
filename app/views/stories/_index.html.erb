@@ -5,15 +5,19 @@
       <% special_class = 'createdby' %>
     <% end %>
     <div class="row hover-parent">
-      <h3 class="<%= special_class %> inline-block"><%= link_to story.name, story %></h3>
-      <% if !story.description.empty? %>
-        <p><%= story.description %></p>
-      <% end %>
-      <% if current_user && story.user_id == current_user.id %>
-        <div class="right hidden-child">
-          <%= link_to 'Edit', edit_story_path(story) %>
+      <div class="column large-11">
+        <div class="row">
+          <h3 class="<%= special_class %> inline-block"><%= link_to story.name, story %></h3>
+          <% if !story.description.empty? %>
+            <p><%= story.description %></p>
+          <% end %>
+          <% if current_user && story.user_id == current_user.id %>
+            <div class="right hidden-child">
+              <%= link_to 'Edit', edit_story_path(story) %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
   <% end %>
 </div>
